@@ -1,10 +1,12 @@
+The full polished version would be a few hundred lines long. Here's a compact but much more engaging **single-file index.html** that starts like a classified investigation, asks her name, does fake AI analysis, and reveals the coffee invite with a dancing "No" button.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Important Survey ☕</title>
+<title>Classified Investigation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -13,422 +15,327 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 }
 
 body{
 height:100vh;
 overflow:hidden;
-background:linear-gradient(-45deg,#ffecd2,#fcb69f,#ffd6e7,#fff0c9);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
+background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+color:white;
 }
 
 .card{
-width:100%;
-max-width:700px;
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(15px);
-padding:40px;
+width:min(92%,700px);
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.15);
 border-radius:30px;
-box-shadow:0 20px 50px rgba(0,0,0,.15);
+padding:40px;
 text-align:center;
-animation:fade .6s ease;
-}
-
-h1{
-font-size:2.5rem;
-margin-bottom:15px;
-color:#222;
-}
-
-p{
-font-size:1.05rem;
-color:#444;
-margin-bottom:15px;
-}
-
-input{
-width:100%;
-padding:15px;
-border:none;
-outline:none;
-border-radius:15px;
-font-size:1rem;
-margin-top:20px;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-button{
-border:none;
-padding:14px 28px;
-border-radius:50px;
-cursor:pointer;
-font-size:1rem;
-font-weight:600;
-transition:.25s;
-}
-
-.primary{
-background:#111;
-color:white;
-margin-top:20px;
-}
-
-.primary:hover{
-transform:translateY(-3px);
+animation:fade .6s;
 }
 
 .hidden{
 display:none;
 }
 
-.badge{
-display:inline-block;
-background:#ff4d6d;
-color:white;
-padding:8px 16px;
-border-radius:30px;
-margin-bottom:20px;
-font-size:.9rem;
-font-weight:600;
+h1{
+font-size:2.5rem;
+margin-bottom:15px;
 }
 
-.loader{
-height:10px;
-background:#eee;
+p{
+opacity:.9;
+line-height:1.8;
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+margin-top:20px;
+font-size:1rem;
+}
+
+button{
+padding:14px 28px;
+border:none;
 border-radius:999px;
-overflow:hidden;
-margin:25px 0;
+cursor:pointer;
+font-weight:700;
+font-size:1rem;
+margin-top:20px;
 }
 
-.fill{
-height:100%;
-width:0%;
-background:#111;
-animation:load 3s forwards;
+.primary{
+background:white;
+color:#111;
 }
 
-@keyframes load{
-100%{width:100%}
-}
-
-.results{
+.terminal{
 text-align:left;
-max-width:350px;
-margin:20px auto;
-font-size:1.05rem;
-line-height:2;
+background:#000;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+font-family:monospace;
+min-height:200px;
+color:#00ff7f;
 }
 
-.choice-buttons{
-margin-top:25px;
+.choice{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:15px;
 flex-wrap:wrap;
+margin-top:20px;
 }
 
-#yesBtn{
-background:#111;
+.choice button{
+margin-top:0;
+}
+
+#yes{
+background:#22c55e;
 color:white;
 }
 
-#noBtn{
-background:white;
-border:2px solid #111;
+#no{
+background:#ef4444;
+color:white;
 position:fixed;
-transition:.15s;
-z-index:999;
+transition:.12s;
+animation:dance .5s infinite alternate;
 }
 
-.final h1{
-font-size:3rem;
-}
-
-.final img{
-width:250px;
-border-radius:20px;
-margin:20px 0;
+@keyframes dance{
+from{transform:rotate(-8deg)}
+to{transform:rotate(8deg)}
 }
 
 .float{
 position:fixed;
 font-size:28px;
 pointer-events:none;
-animation:floatUp 4s linear forwards;
+animation:up 4s linear forwards;
 }
 
-@keyframes floatUp{
-0%{
-opacity:1;
-transform:translateY(0) rotate(0deg);
-}
-100%{
-opacity:0;
-transform:translateY(-100vh) rotate(360deg);
-}
+@keyframes up{
+0%{opacity:1;transform:translateY(0)}
+100%{opacity:0;transform:translateY(-120vh)}
 }
 
 @keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
 
-.shake{
-animation:shake .3s infinite;
-}
-
-@keyframes shake{
-0%{transform:rotate(-4deg)}
-50%{transform:rotate(4deg)}
-100%{transform:rotate(-4deg)}
-}
-
-@media(max-width:600px){
-h1{
-font-size:2rem;
-}
+.success{
+font-size:4rem;
+margin-bottom:10px;
 }
 </style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
+<div class="card" id="screen1">
 
-<div class="card" id="page1">
-<div class="badge">🚨 Very Important Survey 🚨</div>
-
-<h1>Before we continue...</h1>
-
-<p>Please identify yourself for scientific purposes.</p>
-
-<input id="nameInput" placeholder="Enter your name">
-
-<button class="primary" onclick="nextPage()">
-Continue →
-</button>
-</div>
-
-<!-- PAGE 2 -->
-
-<div class="card hidden" id="page2">
-
-<h1 id="greeting"></h1>
+<h1>🚨 ACCESS REQUEST DETECTED</h1>
 
 <p>
-Our AI model is conducting an advanced personality analysis...
+A suspiciously attractive human has opened this page.
+<br>
+Identity verification required.
 </p>
 
-<div class="loader">
-<div class="fill"></div>
-</div>
+<input id="name" placeholder="Enter your name">
 
-<div id="analysisResult" class="hidden">
-
-<div class="results">
-✅ Funny<br>
-✅ Cute<br>
-✅ Elite Vibes<br>
-✅ Main Character Energy<br>
-⚠️ Possible Coffee Enjoyer
-</div>
-
-<button class="primary" onclick="showQuestion()">
-View Results
+<button class="primary" onclick="startInvestigation()">
+Begin Investigation →
 </button>
 
 </div>
 
+<div class="card hidden" id="screen2">
+
+<h1>CLASSIFIED ANALYSIS</h1>
+
+<div class="terminal" id="terminal"></div>
+
 </div>
 
-<!-- PAGE 3 -->
+<div class="card hidden" id="screen3">
 
-<div class="card hidden" id="page3">
+<h1>One Final Test...</h1>
 
-<h1>Groundbreaking Discovery ☕</h1>
+<p>Choose wisely.</p>
 
-<p>
-After extensive research...
-</p>
-
-<p>
-I have reached a very important conclusion:
-</p>
-
-<h2 style="margin:20px 0;">
-We should probably grab coffee sometime.
-</h2>
-
-<p>
-Worst case: we drink coffee.<br>
-Best case: we have fun.<br>
-Unexpected case: we laugh for 3 hours.
-</p>
-
-<div class="choice-buttons">
-<button id="yesBtn">
-Yes ☕
-</button>
-
-<button id="noBtn" class="shake">
-No 🙃
-</button>
+<div class="choice">
+<button onclick="correct()">🐶 Dog Person</button>
+<button onclick="correct()">🐱 Cat Person</button>
+<button onclick="correct()">☕ Coffee Person</button>
 </div>
 
 </div>
 
-<!-- PAGE 4 -->
+<div class="card hidden" id="screen4">
 
-<div class="card hidden final" id="page4">
+<h1>Investigation Complete ☕</h1>
 
-<h1>🎉 YAYYYYYY 🎉</h1>
+<p id="message"></p>
 
-<img src="https://media.giphy.com/media/MeIucAjPKoA120R7sN/giphy.gif">
+<div style="margin-top:30px;">
+<button id="yes">YES ☕</button>
+<button id="no">NO 🤨</button>
+</div>
 
-<h2 id="finalName"></h2>
+</div>
+
+<div class="card hidden" id="screen5">
+
+<div class="success">🎉</div>
+
+<h1>MISSION SUCCESSFUL</h1>
+
+<img
+src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
+style="width:260px;border-radius:20px;margin:20px 0;"
+>
+
+<h2 id="finalText"></h2>
 
 <p>
-Coffee Date Unlocked ☕
-</p>
-
-<p>
-Achievement earned:
-<b>"Excellent Decision Making"</b>
-</p>
-
-<p>
-I promise to bring:
+Achievement Unlocked:
 <br><br>
-✔ Decent conversation
+☕ Coffee Date DLC
 <br>
-✔ Terrible jokes
+💬 Good Conversation
 <br>
-✔ At least one funny story
-</p>
-
-<p style="margin-top:20px;">
-See you soon 😌
+😂 Terrible Jokes Included
 </p>
 
 </div>
 
 <script>
 
-let userName = "";
+let username="";
 
-function nextPage(){
+function startInvestigation(){
 
-userName=document.getElementById("nameInput").value.trim();
+username=document.getElementById("name").value.trim();
 
-if(!userName){
-alert("Scientific protocol requires a name 😌");
+if(!username){
+alert("Name required by international investigation law.");
 return;
 }
 
-page1.classList.add("hidden");
-page2.classList.remove("hidden");
+screen1.classList.add("hidden");
+screen2.classList.remove("hidden");
 
-document.getElementById("greeting").innerHTML=
-`Hello, ${userName}.`;
-
-setTimeout(()=>{
-analysisResult.classList.remove("hidden");
-},3000);
-}
-
-function showQuestion(){
-page2.classList.add("hidden");
-page3.classList.remove("hidden");
-
-setTimeout(()=>{
-moveNoButton();
-},1000);
-}
-
-const noBtn=document.getElementById("noBtn");
-
-const noTexts=[
-"No 🙃",
-"Nope 😅",
-"Think Again 🤨",
-"Coffee Isn't Scary ☕",
-"Still No? 😂",
-"Bro..."
+const lines=[
+"> Connecting to satellites...",
+"> Scanning Instagram energy...",
+"> Detecting vibes...",
+"> Smile detected ✔",
+"> Main character energy ✔",
+"> Meme compatibility: HIGH ✔",
+"> Coffee compatibility: VERY HIGH ✔",
+"> WARNING:",
+"> Subject may be cooler than average.",
+"> Investigation complete."
 ];
 
-let textIndex=0;
+let i=0;
 
-setInterval(()=>{
-if(noBtn){
-textIndex=(textIndex+1)%noTexts.length;
-noBtn.innerText=noTexts[textIndex];
+const terminal=document.getElementById("terminal");
+
+const interval=setInterval(()=>{
+
+terminal.innerHTML+=lines[i]+"<br>";
+
+i++;
+
+if(i===lines.length){
+clearInterval(interval);
+
+setTimeout(()=>{
+screen2.classList.add("hidden");
+screen3.classList.remove("hidden");
+},1200);
 }
-},1800);
 
-function moveNoButton(){
+},700);
+
+}
+
+function correct(){
+
+screen3.classList.add("hidden");
+screen4.classList.remove("hidden");
+
+document.getElementById("message").innerHTML=
+`After careful consideration, <b>${username}</b>...<br><br>
+I think we should grab coffee sometime ☕<br><br>
+This invitation has been approved by absolutely nobody.`;
+}
+
+const no=document.getElementById("no");
+
+function moveButton(){
 
 const x=Math.random()*(window.innerWidth-150);
-const y=Math.random()*(window.innerHeight-70);
+const y=Math.random()*(window.innerHeight-80);
 
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+const texts=[
+"NO 🤨",
+"WAIT 😳",
+"BRO 😂",
+"WRONG ONE 😭",
+"TRY AGAIN ☕"
+];
+
+no.innerText=texts[Math.floor(Math.random()*texts.length)];
 }
 
-noBtn.addEventListener("mouseenter",moveNoButton);
-noBtn.addEventListener("click",moveNoButton);
+no.addEventListener("mouseenter",moveButton);
+no.addEventListener("click",moveButton);
 
-document.getElementById("yesBtn").addEventListener("click",()=>{
+document.getElementById("yes").addEventListener("click",()=>{
 
-page3.classList.add("hidden");
-page4.classList.remove("hidden");
+screen4.classList.add("hidden");
+screen5.classList.remove("hidden");
 
-document.getElementById("finalName").innerHTML=
-`${userName}, this calls for celebration.`;
+document.getElementById("finalText").innerHTML=
+`See you soon, ${username} 😌`;
 
-for(let i=0;i<70;i++){
-createEmoji();
+for(let i=0;i<80;i++){
+
+const e=document.createElement("div");
+
+e.className="float";
+
+const emojis=["☕","🎉","💖","✨","💕"];
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.left=Math.random()*100+"vw";
+e.style.bottom="-20px";
+
+document.body.appendChild(e);
+
+setTimeout(()=>e.remove(),4000);
 }
 
 });
-
-function createEmoji(){
-
-const item=document.createElement("div");
-
-const emojis=[
-"☕","💖","💕","✨","🎉","🌸","💫"
-];
-
-item.className="float";
-item.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
-
-item.style.left=Math.random()*100+"vw";
-item.style.bottom="-20px";
-
-document.body.appendChild(item);
-
-setTimeout(()=>{
-item.remove();
-},4000);
-}
 </script>
 
 </body>
